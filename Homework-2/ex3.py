@@ -69,7 +69,7 @@ algebric_optim(9,100,55)
 
 def c_amod15(a, power):
     """Controlled multiplication by a mod 15"""
-    if a not in [2,7,8,11,13]:  #cum le-a luat aici?
+    if a not in [2,4,7,8,11,13]:  #cum le-a luat aici?
         raise ValueError("'a' must be 2,7,8,11 or 13")
     U = QuantumCircuit(4)        
     for iteration in range(power):
@@ -81,7 +81,7 @@ def c_amod15(a, power):
             U.swap(2,3)
             U.swap(1,2)
             U.swap(0,1)
-        if a == 11:
+        if a in [4,11]:
             U.swap(1,3)
             U.swap(0,2)
         if a in [7,11,13]:
@@ -138,6 +138,6 @@ def perioada(a, nr_mod):
 
     print("Rezultat gresit pentru valoarea 0, fie rezulta un factor al perioadei")
 
-perioada(11,15)
+perioada(4,15)
 
 
